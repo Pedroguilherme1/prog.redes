@@ -1,1 +1,19 @@
+def salvar_lista(nomelista, nomearquivo):
+    try:
+        with open(nomearquivo, 'w') as arquivo:
+            for valor in nomelista:
+                arquivo.write(str(valor) + '\n')
+        return True
+    except Exception as e:
+        print(f"Erro ao salvar a lista: {e}")
+        return False
+
+
+nomelista = valores
+nomearquivo = "minha_lista.txt"
+
+if salvarlista(nomelista, nomearquivo):
+    print("Lista salva com sucesso.")
+else:
+    print("Erro ao salvar a lista.")
 
