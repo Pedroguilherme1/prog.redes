@@ -1,0 +1,36 @@
+
+import random
+
+def gerar_lista(quantidade, valormin, valormax):
+    valoresint = []
+
+    for _ in range(quantidade):
+        valor = random.randint(valormin, valormax)
+
+        valoresint.append(valor)
+
+    return valoresint
+
+def salvar_lista(nome_lista, nome_arquivo):
+    try:
+        with open(nome_arquivo, 'w') as arquivo:
+            for valor in nome_lista:
+                arquivo.write(str(valor) + '\n')
+        return True
+    except Exception as e:
+        print(f"Erro ao salvar a lista: {e}")
+        return False
+
+if __name__ == "__main__":
+    quantidade = 3
+    valormin = 1
+    valormax = 10
+
+    valores = gerar_lista(quantidade, valormin, valormax)
+
+    nome_arquivo = "minha_lista.txt"
+
+    if salvar_lista(valores, nome_arquivo):
+        print("Lista salva com sucesso.")
+    else:
+        print("Erro ao salvar a lista.")
